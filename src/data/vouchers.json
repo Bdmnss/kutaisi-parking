@@ -1,0 +1,5 @@
+[
+  { "code": "WELCOME10", "type": "percent", "value": 10, "appliesTo": "parking", "description": "10% off parking" },
+  { "code": "PARK5", "type": "fixed", "value": 5, "appliesTo": "parking", "description": "5 GEL off parking" },
+  { "code": "ESIM5", "type": "fixed", "value": 5, "appliesTo": "esim", "description": "5 GEL off eSIM" }
+]

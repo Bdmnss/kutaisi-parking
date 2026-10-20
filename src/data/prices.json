@@ -1,0 +1,10 @@
+{
+  "currency": "GEL",
+  "dailyRate": 10,
+  "freeDaysWithEsim": 1,
+  "tiers": [
+    { "id": "short", "label": "1–3 days", "days": "1-3", "pricePerDay": 10 },
+    { "id": "week", "label": "4–7 days", "days": "4-7", "pricePerDay": 10 },
+    { "id": "long", "label": "8+ days", "days": "8+", "pricePerDay": 10 }
+  ]
+}

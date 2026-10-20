@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body { @apply overflow-x-hidden bg-white text-slate-800 antialiased; }
+  body { font-size: 16px; line-height: 1.6; }
+}
+@layer components {
+  .container-page { @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8; }
+  .btn { @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-lg px-5 py-2.5 font-semibold transition focus:outline-none focus-visible:ring-4 focus-visible:ring-primary/30 disabled:cursor-not-allowed disabled:opacity-60; }
+  .btn-primary { @apply btn bg-primary text-white hover:bg-primary-light; }
+  .btn-outline { @apply btn border-2 border-primary text-primary hover:bg-primary-50; }
+  .btn-white { @apply btn bg-white text-primary hover:bg-primary-50; }
+  .input { @apply block min-h-[44px] w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-base text-slate-900 placeholder:text-slate-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30; }
+  .input-error { @apply border-red-500 focus:border-red-600 focus:ring-red-200; }
+  .label { @apply mb-1 block text-sm font-medium text-slate-700; }
+  .card { @apply rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6; }
+  .h1 { @apply text-3xl font-bold tracking-tight text-primary sm:text-4xl lg:text-5xl; }
+  .h2 { @apply text-2xl font-bold tracking-tight text-primary sm:text-3xl; }
+}

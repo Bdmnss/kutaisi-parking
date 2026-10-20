@@ -1,0 +1,5 @@
+[
+  { "id": "ge-3", "name": "Georgia Start", "data": "3 GB", "validity": "7 days", "price": 20 },
+  { "id": "ge-10", "name": "Georgia Travel", "data": "10 GB", "validity": "15 days", "price": 35 },
+  { "id": "ge-30", "name": "Georgia Unlimited+", "data": "30 GB", "validity": "30 days", "price": 55 }
+]
