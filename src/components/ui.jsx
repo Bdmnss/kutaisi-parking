@@ -1,8 +1,9 @@
-export function Spinner({ label = 'Loading…' }) {
+export function Spinner({ label }) {
+  const text = label ?? 'Loading…';
   return (
     <div role="status" className="flex items-center justify-center gap-3 py-10 text-slate-600">
       <span className="h-6 w-6 animate-spin rounded-full border-4 border-primary/20 border-t-primary" aria-hidden="true" />
-      <span>{label}</span>
+      <span>{text}</span>
     </div>
   );
 }

@@ -23,7 +23,7 @@ export const getFaq = () => delay(faq);
 
 export function validateVoucher(code) {
   const v = vouchers.find((x) => x.code === code.trim().toUpperCase());
-  return v ? delay(v, 400) : fail('Voucher code is not valid.', 400);
+  return v ? delay(v, 400) : fail('voucherInvalid', 400);
 }
 
 export function createBooking(payload) {
@@ -45,14 +45,14 @@ export function findBooking(query) {
 // eSIM mock actions
 export function buyEsim(packageId, email) {
   const pkg = esimPackages.find((p) => p.id === packageId);
-  if (!pkg) return fail('Package not found.');
+  if (!pkg) return fail('packageNotFound');
   const iccid = `8999500${Math.floor(1e11 + Math.random() * 9e11)}`;
   const esim = { iccid, email, packages: [{ ...pkg, remainingGb: parseInt(pkg.data, 10) }], balance: 0 };
   write(ESIM_KEY, [...read(ESIM_KEY, []), esim]);
   return delay(esim, 900);
 }
 export function addEsim(iccid) {
-  if (!/^\d{18,20}$/.test(iccid)) return fail('ICCID must be 18–20 digits.');
+  if (!/^\d{18,20}$/.test(iccid)) return fail('iccidInvalid');
   const all = read(ESIM_KEY, []);
   let esim = all.find((e) => e.iccid === iccid);
   if (!esim) { esim = { iccid, packages: [], balance: 0 }; write(ESIM_KEY, [...all, esim]); }
@@ -60,13 +60,13 @@ export function addEsim(iccid) {
 }
 export function getEsim(iccid) {
   const esim = read(ESIM_KEY, []).find((e) => e.iccid === iccid.trim());
-  return esim ? delay(esim) : fail('No eSIM found with this ICCID. Add it first.');
+  return esim ? delay(esim) : fail('esimNotFound');
 }
 export function addPackage(iccid, packageId) {
   const all = read(ESIM_KEY, []);
   const esim = all.find((e) => e.iccid === iccid.trim());
   const pkg = esimPackages.find((p) => p.id === packageId);
-  if (!esim) return fail('No eSIM found with this ICCID. Add it first.');
+  if (!esim) return fail('esimNotFound');
   esim.packages.push({ ...pkg, remainingGb: parseInt(pkg.data, 10) });
   write(ESIM_KEY, all);
   return delay(esim);

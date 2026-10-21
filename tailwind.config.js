@@ -7,7 +7,7 @@ export default {
         primary: { DEFAULT: '#0E3A53', light: '#1A5878', dark: '#092838', 50: '#EEF4F7' },
         white: '#FFFFFF',
       },
-      fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+      fontFamily: { sans: ['Inter', 'Noto Sans Georgian', 'system-ui', 'sans-serif'] },
     },
   },
   plugins: [],
